@@ -1,14 +1,14 @@
 #include "monty.h"
 
 /**
- * pall -name of function
+ * pall - name of function
  * 
  * @stack: stack worked on.
  * @line_number: number of the line.
  * 
  * Return: none
  */
- void pall(stack_t **stack, unsigned int line_number)
+ void pall(stack_t **stack)
  {
    stack_t *current = *stack;
    
@@ -20,14 +20,14 @@
  }
  
  /**
- * push -name of function
- * 
+ * push - name of function
+ *  
  * @stack: stack worked on.
  * @line_number: number of the line.
  * 
  * Return: none
  */
- void push(stack_t **stack, int value, unsigned int line_number)
+ void push(stack_t **stack, int value)
  {
    stack_t *new_node = malloc(sizeof(stack_t));
    if (!new_node)

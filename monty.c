@@ -23,12 +23,12 @@ void process_line(char *line, stack_t **stack, unsigned int line_number) {
 
     if (strcmp(opcode, "push") == 0) {
         if (operand == NULL || !is_integer(operand)) {
-            fprintf(stderr, "L%u: usage: push integer\n", line_number);
+            fprintf(stderr, "L%u: usage: push integer\n");
             exit(EXIT_FAILURE);
         }
-        push(stack, value, line_number);
+        push(stack, value);
     } else if (strcmp(opcode, "pall") == 0) {
-        pall(stack, line_number);
+        pall(stack);
     } else if (strcmp(opcode, "pint") == 0) {
         pint(stack, line_number);
     } else if (strcmp(opcode, "pop") == 0) {
@@ -42,7 +42,7 @@ void process_line(char *line, stack_t **stack, unsigned int line_number) {
     } else if (strcmp(opcode, "sub") == 0) {
         sub(stack, line_number);
     } else if (strcmp(opcode, "mul") == 0) {
-        multuply(stack, line_number);
+        multiply(stack, line_number);
     } else if (strcmp(opcode, "div") == 0) {
         divide(stack, line_number);
     } else if (strcmp(opcode, "mod") == 0) {
