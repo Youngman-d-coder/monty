@@ -64,7 +64,7 @@
      fprintf(stderr, "L%u: can't pint, stack empty\n", line_number);
      exit(EXIT_FAILURE);
    }
-   printf("%d\n", (*stack)->n);
+   printf("%u\n", (*stack)->n);
  }
  
  /**
@@ -120,7 +120,7 @@
      (*stack)->next = NULL;
    }
    temp->prev = NULL;
-   temp->next = *;stack;
+   temp->next = *stack;
    (*stack)->prev = temp;
    *stack = temp;
  }
