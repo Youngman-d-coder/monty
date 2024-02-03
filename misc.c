@@ -25,30 +25,33 @@ void nop(stack_t **stack, unsigned int line_number)
  */
 void print_char(stack_t **stack, unsigned int line_number)
 {
-    if (!stack || !*stack)
-    {
-        fprintf(stderr, "L%u: can't pchar, stack empty\n", line_number);
-        exit(EXIT_FAILURE);
-    }
+  int ascii_value;
+  stack_t *temp;
 
-    int ascii_value = (*stack)->n;
+  if (!stack || !*stack)
+  {
+    fprintf(stderr, "L%u: can't pchar, stack empty\n", line_number);
+    exit(EXIT_FAILURE);
+  }
 
-    if (ascii_value < 0 || ascii_value > 127)
-    {
-        fprintf(stderr, "L%u: can't pchar, value out of range\n", line_number);
-        exit(EXIT_FAILURE);
-    }
+  ascii_value = (*stack)->n;
 
-    putchar(ascii_value);
-    putchar('\n');
+  if (ascii_value < 0 || ascii_value > 127)
+  {
+    fprintf(stderr, "L%u: can't pchar, value out of range\n", line_number);
+    exit(EXIT_FAILURE);
+  }
+
+  putchar(ascii_value);
+  putchar('\n');
 
     /* Pop the top element of the stack */
-    stack_t *temp = *stack;
-    *stack = (*stack)->next;
-    free(temp);
+  temp = *stack;
+  *stack = (*stack)->next;
+  free(temp);
 
-    if (*stack)
-        (*stack)->prev = NULL;
+  if (*stack)
+    (*stack)->prev = NULL;
 }
 
 /**
@@ -59,7 +62,7 @@ void print_char(stack_t **stack, unsigned int line_number)
  * 
  * Return: none
  */
-void print_str(stack_t **stack, unsigned int line_number)
+void print_str(stack_t **stack)
 {
     stack_t *temp = *stack;
 

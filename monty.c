@@ -92,23 +92,29 @@ void monty_interpreter(FILE *file, stack_t **stack) {
  * @argv: Array of command-line arguments.
  *
  * Return: EXIT_SUCCESS on success, EXIT_FAILURE on failure.
- */
-int main(int argc, char *argv[]) {
-    if (argc != 2) {
-        fprintf(stderr, "USAGE: monty file\n");
-        exit(EXIT_FAILURE);
-    }
+ */you 
+int main(int argc, char *argv[])
+{
+  stack_t *stack;
+  FILE *file;
 
-    FILE *file = fopen(argv[1], "r");
-    if (!file) {
-        fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
-        exit(EXIT_FAILURE);
-    }
+  if (argc != 2)
+  {
+    fprintf(stderr, "USAGE: monty file\n");
+    exit(EXIT_FAILURE);
+  }
 
-    stack_t *stack = NULL;
+  file = fopen(argv[1], "r");
+  if (!file)
+  {
+    fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
+    exit(EXIT_FAILURE);
+  }
 
-    monty_interpreter(file, &stack);
+  stack = NULL;
 
-    fclose(file);
-    return EXIT_SUCCESS;
+  monty_interpreter(file, &stack);
+
+  fclose(file);
+  return (EXIT_SUCCESS);
 }
