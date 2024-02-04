@@ -1,6 +1,13 @@
 #include "monty.h"
 #include <stdio.h>
+int is_integer(const char *str)
+{
+	char *endptr;
+	strtol(str, &endptr, 10);
 
+		    /* Check if the entire string was parsed (no conversion errors) */
+	return (*endptr == '\0');
+}
 /**
  * process_line - Tokenizes and processes a line of the Monty script.
  *
@@ -29,7 +36,7 @@ void process_line(char *line, stack_t **stack, unsigned int line_number)
     {
         if (operand == NULL || !is_integer(operand))
         {
-            fprintf(stderr, "L%u: usage: push integer\n");
+            fprintf(stderr, "L%u: usage: push integer\n", line_number);
             exit(EXIT_FAILURE);
         }
         push(stack, value);
@@ -79,7 +86,7 @@ void process_line(char *line, stack_t **stack, unsigned int line_number)
     }
     else if (strcmp(opcode, "pstr") == 0)
     {
-        print_str(stack, line_number);
+        print_str(stack);
     }
     else if (strcmp(opcode, "rotr") == 0)
     {
@@ -132,7 +139,7 @@ void monty_interpreter(FILE *file, stack_t **stack)
  * @argv: Array of command-line arguments.
  *
  * Return: EXIT_SUCCESS on success, EXIT_FAILURE on failure.
- */you 
+ */ 
 int main(int argc, char *argv[])
 {
   stack_t *stack;
