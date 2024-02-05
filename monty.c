@@ -123,7 +123,7 @@ void monty_interpreter(FILE *file, stack_t **stack)
     size_t len = 0;
     unsigned int line_number = 0;
 
-    while (ge_tline(&line, &len, file) != -1)
+    while (get_line(&line, &len, file) != -1)
     {
         line_number++;
         process_line(line, stack, line_number);

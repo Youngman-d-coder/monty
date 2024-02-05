@@ -4,7 +4,7 @@ ssize_t get_line(char **lineptr, size_t *n, FILE *stream)
 {
 	size_t bufferSize = 128;
 	size_t currentPosition = 0;
-	int curren = tChar;
+	int currentChar;
 
 	if (*lineptr == NULL)
 		*n = 0;
