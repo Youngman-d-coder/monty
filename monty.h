@@ -57,6 +57,7 @@ void set_queue_mode(stack_t **stack, __attribute__((unused)) unsigned int line_n
 void rotate_left(stack_t **stack, __attribute__((unused)) unsigned int line_number);
 void rotate_right(stack_t **stack, __attribute__((unused)) unsigned int line_number);
 void set_stack_mode(stack_t **stack, __attribute__((unused)) unsigned int line_number);
+ssize_t get_line(char **lineptr, size_t *n, FILE *stream);
 
 
 #endif /* MONTY_H */
