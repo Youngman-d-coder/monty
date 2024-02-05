@@ -16,7 +16,7 @@ ssize_t get_line(char **lineptr, size_t *n, FILE *stream)
 		if (currentChar == EOF || currentChar == '\n')
 		{
 		  (*lineptr)[currentPosition] = '\0';
-		  return (currentPosition == 0 && currentChar == EOF ? -1 : currentPosition);
+		  return (currentPosition == 0 && currentChar == EOF ? (size_t)-1 : currentPosition);
 		}
 
 		(*lineptr)[currentPosition] = (char)currentChar;
